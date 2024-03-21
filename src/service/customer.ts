@@ -1,6 +1,8 @@
 import axios from "axios";
-import { QueryType } from "../utility/type";
+import { ICustomer, QueryType } from "../utility/type";
 import { ITEM_URL } from "../utility/const";
+import { BadRequestException } from "../utility/Error";
+import prisma from "../db/prisma-client";
 
 export const getCustomers = async (query: Partial<QueryType>): Promise<Record<string, string>> => {
     const { location, industry, description_summary, customer_name, size=15, page=0 } = query;
@@ -32,4 +34,14 @@ export const getCustomers = async (query: Partial<QueryType>): Promise<Record<st
         }))
     });
     return items;
+}
+
+export const createCustomer = async (customer: ICustomer) => {
+    const { customer_name, } = customer;
+    if(!customer_name){
+        throw new BadRequestException('Customer Name missing!');
+    }
+    return await prisma.customer.create({
+        data: customer
+    });
 }

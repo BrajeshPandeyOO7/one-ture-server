@@ -1,10 +1,11 @@
 import express from 'express';
-import { customerControlle } from '../controller/customer';
+import { createCustomerController, customerControlle } from '../controller/customer';
 
 const router = express.Router();
 
 router
     .route('/')
-    .get(customerControlle);
+    .get(customerControlle)
+    .post(createCustomerController);
 
 export default router;

@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Customer {
+  id                  String      @id @default(uuid())
+  customer_logo       String?
+  customer_name       String
+  headline            String
+  url                 String
+  page_url            String?
+  location            String
+  industry            String
+  description_summary String
+
+  @@index([customer_name], name: "customer_name") // this field is searchable so better to keep in indexing
+  @@map("customers")
+}

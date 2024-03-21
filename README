@@ -1,0 +1,42 @@
+## Enviroment File
+
+```bash
+
+PORT=8080
+DATABASE_URL="postgresql://postgres:password@localhost:5432/OneTure"
+
+```
+
+## Installation
+
+```bash
+
+$ npm install
+$ npm install -g typescript
+
+```
+
+## Prisma
+# Make Sure you have postgreSQL
+
+# generate Prisma client(when prisma model update run below command or after initial project setup)
+
+```bash
+
+$ npx prisma generate
+
+```
+
+# run below command db migration(It will update/create db inside postgresql )
+
+```bash
+
+$ npx prisma db push
+
+```
+
+## Running the app
+
+```bash
+
+```

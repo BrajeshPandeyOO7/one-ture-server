@@ -1,8 +1,7 @@
 export interface QueryType{
     location:string;
-    description_summary:string;
+    search:string;
     industry: string;
-    customer_name: string;
     size: number;
     page: number;
 }

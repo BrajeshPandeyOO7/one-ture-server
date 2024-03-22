@@ -35,8 +35,18 @@ $ npx prisma db push
 
 ```
 
-## Running the app
+## Running the app in dev mode
 
 ```bash
+
+$ npm run dev
+
+```
+
+## Running the app on production
+
+```bash
+$ npm run build
+$ npm start
 
 ```
